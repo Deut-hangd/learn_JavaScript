@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>导航条</title>
+    <style type="text/css">
+
+        /*消除默认样式*/
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        /*设置 ul*/
+        .nav{
+            /*去除项目符号*/
+            list-style: none;
+            /*设置一个宽度*/
+            width: 1000px;
+            /*为 ul 设置一个背景颜色*/
+            background-color: chartreuse;
+            /*设置元素外边距*/
+            margin: 10px auto;
+            /*解决高度塌陷*/
+            overflow: hidden;
+
+        }
+
+        /*设置 li*/
+        .nav li{
+            /*元素 li 向左浮动*/
+            float: left;
+            /*设置元素宽度*/
+            width: 12.5%;
+
+
+
+        }
+
+        .nav a{
+            /*将行内元素转为块元素*/
+            display: block;
+            /*为元素设置宽度*/
+            width: 100%;
+            /*设置内边距*/
+            padding: 10px 0;
+            /*去掉文字下划线*/
+            text-decoration: none;
+            /*设置文字居中*/
+            text-align: center;
+            /*设置字体颜色*/
+            color: white;
+        }
+
+        .nav a:hover{
+            background-color: deepskyblue;
+        }
+
+    </style>
+</head>
+<body>
+<ul class="nav">
+    <li><a href="#">首页</a></li>
+    <li><a href="#">精品</a></li>
+    <li><a href="#">推荐</a></li>
+    <li><a href="#">娱乐</a></li>
+    <li><a href="#">新闻</a></li>
+    <li><a href="#">体育</a></li>
+    <li><a href="#">小说</a></li>
+    <li><a href="#">更多</a></li>
+</ul>
+<ul class="nav">
+    <li><a href="#">首页</a></li>
+    <li><a href="#">精品</a></li>
+    <li><a href="#">推荐</a></li>
+    <li><a href="#">娱乐</a></li>
+    <li><a href="#">新闻</a></li>
+    <li><a href="#">体育</a></li>
+    <li><a href="#">小说</a></li>
+    <li><a href="#">更多</a></li>
+</ul>
+</body>
+</html>
