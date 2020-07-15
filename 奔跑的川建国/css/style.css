@@ -1,0 +1,38 @@
+
+body{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+/* 设置 box1 */
+.box1{
+    /* 设置宽和高 */
+    width: 100px;
+    height: 400px;
+    /* 设置背景图片 */
+    background-image: url("../img/trump_run.png");
+    /* 设置背景颜色 */
+    background-color: cornsilk;
+    /* 指定动画效果格式 */
+    animation: run 1s steps(6) infinite;
+
+} 
+
+/* 设定动画暂停格式 */
+.box1:hover{
+    animation-play-state: paused;
+}
+
+/* 设置关键帧 */
+@keyframes run{
+    /* 设置起始位置 */
+    from{
+        background-position: 0px 0px;
+    }
+
+    /* 设置终止位置 */
+    to{
+        background-position: -600px 0px;
+    }
+}
