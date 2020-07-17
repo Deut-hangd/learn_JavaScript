@@ -1,0 +1,35 @@
+/* 设置box1  */
+.box1{
+    /* 设置box1的宽高 */
+    width: 132px;
+    height: 271px;
+    /* box1水平居中 */
+    margin: 0 auto;
+    /* 设置背景色透明 */
+    background-color: transparent;
+    /* 设置背景图片 */
+    background-image: url("../img/bigtap-mitu-queue-big.png");
+
+    /* 设置动画运动格式 */
+    animation: move 1s steps(4);
+    /* 动画运动8次 */
+    animation-iteration-count: 8;
+
+
+
+
+}
+
+/* 设置关键帧 */
+@keyframes move{
+    /* 设置起点 */
+    from{
+        background-position: 0 0;
+    }
+
+    /* 设置终点 */
+    to{
+        background-position: -528px 0;
+    }
+}
+
