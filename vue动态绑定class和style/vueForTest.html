@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>vueForTest</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <style type="text/css">
+        .style2{
+            color: chartreuse;
+        }
+
+        .style1{
+            color: pink;
+        }
+
+        
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <h2 :class="getClass()" :style="getStyle()">{{message}}</h2>
+           <button v-on:click="myClick">换色</button>
+        </div>
+
+        <script>
+            const app = new Vue({
+                el: "#app",
+                data: {
+                    message: "你好,李银河!",
+                    isStyle1: true,
+                    isStyle2: true,
+                    fontSize: 100
+                },
+                methods: {
+                    // 获取选择器
+                    getClass: function(){
+                        return {style1 : this.isStyle1, style2 : this.isStyle2};
+                    },
+                    // 获取样式
+                    getStyle: function(){
+                        return {'font-size' : this.fontSize + 'px'}
+                    },
+                    // 单击响应函数,单击取消该选择器
+                    myClick: function(){
+                        this.isStyle1 = !this.isStyle1;
+                    }
+                }
+                
+            });
+        </script>
+    </body>
+    
+</html>
