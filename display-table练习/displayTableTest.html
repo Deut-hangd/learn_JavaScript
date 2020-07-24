@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta chatset="utf-8">
+        <title>displayTable</title>
+        <style type="text/css">
+        .table{
+            display: table;
+            margin: 0 auto;
+            border: 10px solid red;
+        }
+
+        .tHead{
+            display: table-row;
+        }
+
+        .tBody{
+            display: table-row;
+        }
+
+        .tHead div{
+            display: table-cell;
+            border: 1px solid chartreuse;
+            text-align: center;
+        }
+
+        .tBody div{
+            display: table-cell;
+            border: 1px solid chartreuse;
+            /* 表格内容水平居中 */
+            text-align: center;
+        }
+        </style>
+
+        <!-- .tHead{
+            display: row;
+        } -->
+    </head>
+    <body>
+        <div class="info">
+            <div class="table">
+                <!-- 设置表头 -->
+            <div class="tHead">
+                <!-- 设置表头元素 -->
+                <div class="id">
+                    身份证号码
+                </div>
+                
+                <div class="name">
+                    姓名
+                </div>
+
+                <div class="age">
+                    年龄
+                </div>
+
+                <div class="sex">
+                    性别
+                </div>
+
+                <div class="address">
+                    住址
+                </div>
+            </div>
+            <!-- 设置表格主体 -->
+            <div class="tBody">
+                <div class="id">
+                    612321xxxxxxxxxx
+                </div>
+
+                <div class="name">
+                    王辰宇
+                </div>
+
+                <div class="age">
+                    7岁
+                </div>
+
+                <div class="sex">
+                    男
+                </div>
+
+                <div class="address">
+                    十里村
+                </div>
+            </div>
+            </div>
+
+        </div>
+    </body>
+</html>
