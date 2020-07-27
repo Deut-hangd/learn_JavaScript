@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head> 
+        <meta charset="utf-8"/>
+        <title>父子组件通信03</title>
+        <script src="https://cdn.delivr.net/npm/vue/dist/vue.js"></script>
+        <style>
+
+           
+
+            #app{
+                display: flex;
+                justify-content: center;
+            }
+
+            button{
+                margin: 20px;
+                background-color: black;
+                color: chartreuse;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <cpn1 @item-click="cpnClick"></cpn1>
+        </div>
+
+
+        <template id="cpn1">
+            <div>
+                <button v-for="item in categories" @click="btnClick(item)">{{item.name}}</button>
+            </div>
+        </template>
+
+        <script>
+
+            const cpn1 = {
+                template: "#cpn1",
+                data(){
+                    return {
+                        categories: [
+                            {id: "aaa", name: "热门推荐"},
+                            {id: "bbb", name: "手机数码"},
+                            {id: "ccc", name: "家用家电"}
+                        ]
+                    }
+                },
+                methods: {
+                    btnClick: function(item){
+                        this.$emit('item-click', item);
+                    }
+                }
+            }
+
+            // 创建vue实例
+            const app = new Vue({
+                el: "#app",
+                data: {
+                   
+                },
+                methods: {
+                    cpnClick(){
+                        console.log(item.name);
+                    }
+                },
+                components: {
+                    cpn1
+                }
+              
+            });
+        </script>
+    </body>
+</html>

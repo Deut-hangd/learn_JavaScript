@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head> 
+        <meta charset="utf-8"/>
+        <title>父子组件通信02</title>
+        <script src="https://cdn.delivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+
+            <cpn1 :c-info="info"></cpn1>
+        </div>
+
+        <!-- 子组件模板 -->
+        <template id="cpn1">
+            <div>
+                <h2>{{cInfo}}</h2>
+            </div>
+        </template>
+
+        <script>
+            // 创建子组件实例
+            const cpn1 = {
+                template: "#cpn1",
+                // 子组件接收父组件的字段
+                props: {
+                    cInfo: {
+                        type: Object,
+                        default(){
+                            return {};
+                        }
+                    }
+                },
+
+                data(){
+                    return {};
+                }
+            }
+
+            // 创建vue实例
+            const app = new Vue({
+                el: "#app",
+                data: {
+                    info: {
+                        name: "李银河",
+                        age: 18,
+                        height: 1.88
+
+                    }
+                },
+                components: {
+                    cpn1
+                }
+            });
+        </script>
+    </body>
+</html>
