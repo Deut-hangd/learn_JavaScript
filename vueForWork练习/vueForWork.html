@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>vueForWork</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js">  </script>
+        <style type="text/css">
+        .app{
+            display: flex;
+            justify-content: center;
+        }
+/* 
+        ul{
+            list-style: none;
+        } */
+        .active{
+            color: red;
+        }
+        </style>
+    </head>
+    <body>
+        <div class="app">
+            <ul class="moviesList">
+                <li v-for="(item, index) in items" 
+                :class="{active: index === curIndex}" 
+                @click="liClick(index)">
+                {{index}}.{{item}}
+                </li>
+            </ul>
+        </div>
+
+    </body>
+    <script>
+        const app = new Vue({
+            el: ".app",
+            data: {
+                items: ["<<海王>>","<<超人>>","<<蝙蝠侠>>","<<蜘蛛侠>>"],
+                curIndex: 0
+            },
+            methods: {
+                liClick: function(index){
+                    this.curIndex = index;
+                }
+            }
+
+        });
+    </script>
+</html>
