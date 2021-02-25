@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+      <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <!-- 处理用户输入 -->
+        <!-- v-on -->
+        <!-- 添加一个事件监听器 -->
+        <div id="app-5">
+            <p>{{message}}</p>
+            <button v-on:click="reverseMessage">反转</button>
+        </div>
+
+        <!-- 统计按钮点击的次数 -->
+        <div id="example-1">
+            <button v-on:click="counter += 1"> Add 1 </button>
+            <p>这个按钮被点击了{{counter}}次.</p>
+        </div>
+
+        <!-- v-model -->
+        <!-- 实现表单输入和应用状态之间的双向绑定 -->
+        <div id="app-6">
+            <p>{{message}}</p>
+            <input v-model="message">
+        </div>
+
+        <div id="example-2">
+            <button v-on:click="greet">Greet</button>
+        </div>
+
+        <!-- 内联处理器中的方法 -->
+        <div id="example-3">
+            <button v-on:click="say('hi')">Say hi</button>
+            <button v-on:click="say('what')">Say what</button>
+        </div>
+
+        <div id="example-4">
+            <button v-on:click="warn('From cannot be submitted yet.', $event)">
+                Submit
+            </button>
+        </div>
+    </body>
+    
+    <script>
+
+        var example4 = new Vue({
+            el: "#example-4",
+            methods: {
+                warn: function(message, event) {
+                    if (event) {
+                        event.preventDefault()
+                    }
+                    alert(message)
+                }
+            }
+        })
+
+        var example3 = new Vue({
+            el: '#example-3',
+            methods: {
+                say: function(message) {
+                    alert(message)
+                }
+            }
+        })
+
+        var example2 = new Vue({
+            el: "#example-2",
+            data: {
+                name: 'Vue.js'
+            },
+            methods: {
+                greet: function(event) {
+                    alert('Hello' + this.name + '!')
+                    if (event) {
+                        alert(event.target.tagName)
+                    }
+                }
+            }
+        })
+
+        var example1 = new Vue({
+            el: "#example-1",
+            data: {
+                counter: 0
+            }
+        })
+
+        var app6 = new Vue({
+            el: "#app-6",
+            data: {
+                message: "Hello Vue!"
+            }
+        })
+
+        var app5 = new Vue({
+            el: "#app-5",
+            data: {
+                message: 'Hello Vue.js!'
+            },
+            methods: {
+                reverseMessage: function() {
+                    this.message = this.message.split('').reverse().join('')
+                }
+            }
+        })
+    </script>
+</html>

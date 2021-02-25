@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  
+    </head>
+
+    <body>
+        <div id="app-8">
+            <span>Message: {{message}} {{age}}</span>
+            <br>
+            <input v-model.lazy="message" type="text">
+            <input v-model.number="age" type="number">
+        </div>
+
+        <!-- 多行文本 -->
+        <div id="app-1">
+            <span>Multiline message is:</span>
+            <p style="white-space: pre-line;">{{message}}</p>
+            <br>
+            <textarea v-model="message" placeholder="add multiple lines"></textarea>
+        </div>
+
+        <div id="app-2">
+            <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+            <label for="jack">Jack</label>
+            <input type="checkbox" id="john" value="John" v-model="checkedNames">
+            <label for="john">John</label>
+            <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+            <label for="mike">Mike</label>
+            <br>
+            <span>Checked names: {{checkedNames}} </span>
+        </div>
+
+        <div id="app-3">
+            <input type="radio" id="one" value="One" v-model="picked">
+            <label for="one">One</label>
+            <input type="radio" id="two" value="Tow" v-model="picked">
+            <label for="tow">Tow</label>
+            <br>
+            <span>Picked: {{picked}} </span>
+        </div>
+
+        <!-- 选择框 -->
+        <div id="app-4">
+            <select v-model="selected" multiple>
+                <option disabled vaule="">请选择</option>
+                <option>A</option>
+                <option>B</option>
+                <option>C</option>
+            </select>
+            <br>
+            <span>Selected: {{selected}} </span>
+        </div>
+
+        <div id="app-5">
+            <select v-model="selected">
+                <option v-for="item in items" v-bind:value="item.value">
+                    {{item.text}}
+                </option>
+            </select>
+            <span>Selected: {{selected}}</span>
+        </div>
+    </body>
+    <script>
+
+        var app8 = new Vue({
+            el: "#app-8",
+            data: {
+                age: 1,
+                message: ''
+            }
+        })
+
+        var app5 = new Vue({
+            el: "#app-5",
+            data: {
+                selected: "A",
+                items: [
+                    {text: 'One', value: "A"},
+                    {text: 'Tow', value: "B"},
+                    {text: 'Three', value: "C"}
+                ]
+            }
+        })
+
+        var app4 = new Vue({
+            el: "#app-4",
+            data: {
+                selected: []
+            }
+        })
+
+        var app3 = new Vue({
+            el: "#app-3",
+            data: {
+                picked: ''
+            }
+        })
+
+        var app2 = new Vue({
+            el: "#app-2",
+            data: {
+                checkedNames: []
+            }
+        })
+
+        var app1 = new Vue({
+            el: "#app-1",
+            data: {
+                message: ''
+            }
+        })
+    </script>
+</html>
