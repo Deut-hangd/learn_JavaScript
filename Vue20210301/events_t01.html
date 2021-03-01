@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <script>
+            function show(e) {
+                alert(e.target + "   " + e.currentTarget + "  " + e.type + " " + new Date())
+            }
+        </script>
+    </head>
+    <body>
+        <div id="app" align="center">
+            <form method="get">
+                <input type="text" name="username" value=""/>
+                <input type="button" value="echo username" onclick="show(event)"/>
+            </form>
+        </div>
+    </body>
+</html>

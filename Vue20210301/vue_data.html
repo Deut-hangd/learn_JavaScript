@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <!-- import CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+</head>
+<body>
+
+    <div id="app-5">
+        <el-button @click="show">click me</el-button>
+    </div>
+
+  <div id="app">
+    <el-button @click="visible = true" type="primary">Button</el-button>
+    <el-dialog :visible.sync="visible" title="Hello world">
+      <p>Try Element</p>
+    </el-dialog>
+  </div>
+  
+
+  <div id="app2">
+     <template>
+        <el-form :rules="loginRules" :model="loginForm" style="width: 200px; margin: auto">
+            <el-form-item prop="username" :rules="loginRules.username">
+                <el-input type="username" v-model="loginForm.username" placeholder="请输入用户名"></el-input>
+            </el-form-item>
+            <el-form-item prop="password" :rules="loginRules.password">
+                <el-input type="password" v-model="loginForm.password" placeholder="请输入密码" show-password="true"></el-input>
+            </el-form-item>
+            <el-row :gutter="20">
+                <el-col :span="5">
+                    <el-checkbox>
+                        记住密码
+                    </el-checkbox>
+                </el-col>
+                <el-col :span="10" :offset="6" style="text-align: right;">
+                    <el-link>忘记密码</el-link>
+                </el-col>
+                
+            </el-row>
+        </el-form>
+
+        <h1>{{loginForm.username}}</h1>
+        <h1>{{loginForm.password}}</h1>
+     </template>
+  </div>
+  <div id="app3">
+      <el-row type="flex" justify="center">
+            <el-col :span=24 type="flex" justify="center"> 
+               <el-button v-on:click="talk" type="primary">点击我</el-button>
+            </el-col>
+      </el-row>
+  </div>
+
+  <div id="app4"  style="height: 1000px">
+      <el-row type="flex" justify="center">
+          <el-button type="success">你</el-button>
+          <el-button type="warning">我</el-button>
+        </el-row>
+      <el-table :data="tableData">
+            <el-table-column prop="username" label="操作1">
+                
+            </el-table-column>
+            <el-table-column prop="password" label="操作2">
+          </el-table-column>
+          <el-table-column fixed="right" label="操作3">
+            <!-- <template slot-scope="scope">
+                <el-button v-on:click="loG(scope)" type="success">clik</el-button>
+            </template> -->
+            <el-button type="success">你</el-button>
+        </el-table-column>
+      </el-table>
+  </div>
+</body>
+  <!-- import Vue before Element -->
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <!-- import JavaScript -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <script>
+
+      var app5 = new Vue({
+          el: "#app-5",
+          data: {},
+          methods: {
+              show: function() {
+                  this.$message({
+                      title: "title",
+                      message: "success",
+                      duration: 1000
+                  })
+              }
+          }
+      })
+
+      var app4 = new Vue({
+          el: "#app4",
+          data: function() {
+              return {
+                  tableData: [
+                      {username: "lkl", password: "123"},
+                      {username: "df", password: "234"}
+                  ]
+              }
+          },
+          methods: {
+              loG: function(scope){
+                console.log(scope)
+              }
+          }
+      })
+
+      var app3 = new Vue({
+          el: "#app3",
+          data: {},
+          methods: {
+              talk: function() {
+                  this.$confirm(
+                    '重置会清空所有抽奖结果，无法撤销！',
+                    '确定要重置吗？',
+                {
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                    type: 'warning',
+                }
+                ).then()
+              }
+          }
+      })
+
+      var app2 = new Vue({
+          el: '#app2',
+          data: function() {
+              return {
+                  loginForm: {
+                      username: ' ',
+                      pasword: ' '
+                  },
+                  loginRules: {
+                      username: [{required: true, message: "请输入用户名", trigger: ['blur', 'change']}],
+                      password: [{required: true, message: "请您输入密码", trigger: ['blur', 'change']}]
+                  }
+              }
+          }
+      })
+
+    var app1 = new Vue({
+      el: '#app',
+      data: function() {
+          return {visible : false}
+      }
+    })
+  </script>
+</html>
+

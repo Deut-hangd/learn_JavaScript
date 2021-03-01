@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+
+        <div id="app-4">
+            <button @click="cl()">click me</button>
+        </div>
+
+        <div id="app-3">
+            <blog-test2 title="nono"></blog-test2>
+        </div>
+        
+
+
+        <template id="blog-tmp1">
+            <div>
+                <h3>{{post.title}}</h3>
+                <div v-html="post.content"></div>
+            </div>
+        </template>
+        <div id="app1">
+            <blog-post 
+            v-for="post in posts"
+            v-bind:key="post.id"
+            v-bind:post="post">
+            </blog-post>
+        </div>
+
+        <template id="blog-tmp2">
+            <h3>{{post.title}}</h3>
+        </template>
+        <div id="app2">
+            <blog-test v-bind:post="post"></blog-test>
+        </div>
+    </body>
+    <script>
+
+        var vue1 = new Vue({
+            el: "#app-4",
+            data: {},
+            methods:{
+                cl: function() {
+                    this.$message({
+                        title: 'title',
+                        type: 'success',
+                        duration: 1000
+                    })
+                }
+            }
+        })
+
+        Vue.component("blog-test2", {
+            props: ['title'],
+            template: "<h3>{{title}}</h3>"
+        })
+
+        var app3 = new Vue({
+            el: "#app-3"
+        })
+
+        Vue.component('blog-test', {
+            props: ['post'],
+            template: "#blog-tmp2"
+        })
+
+        var app2 = new Vue({
+            el: "#app2",
+            data: {
+                post: {id: 1, title: "ni", content: "jjkj"}
+            }
+        })
+
+        Vue.component('blog-post', {
+            props:['post'],
+            template: "#blog-tmp1"
+        })
+
+        var app1 = new Vue({
+            el: "#app1",
+            data: {
+                posts: [
+                    {id: 1, title: "小王子", content: "每个大人原来都是孩子."},
+                    {id: 2, title: "婴宁", content: "聊斋"}
+                ]
+            }
+        })
+    </script>
+</html>

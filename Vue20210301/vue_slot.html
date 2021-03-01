@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    </head>
+
+    <body>
+        <template id="tmp2">
+            <div>
+                <strong>Error!</strong>
+                <slot></slot>
+            </div>
+        </template>
+
+        <div id="app1">
+           <blog-box>
+               Somthing bad happened.
+           </blog-box> 
+        </div>
+    </body>
+
+    <script>
+        const blogBox = {
+            template: "#tmp2"
+        }
+
+        var app1 = new Vue({
+            el: "#app1",
+            components: {
+                'blog-box': blogBox
+            }
+        })
+    </script>
+</html>

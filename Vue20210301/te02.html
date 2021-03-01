@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <!-- <script>
+            var obj = {
+                birth: 2020,
+                getAge: function() {
+                    var b = this.birth;
+                    console.log(this);
+                    var fn = () =>  this.birth;
+                    return fn();
+                }
+            }
+        </script> -->
+    
+        <style type="text/css">
+
+        .main {
+            width: 600px;
+            height: 600px;
+            background-color: blue;
+        }
+
+        .first-child {
+            background-color: chartreuse;
+            height: 100px;
+            width: 100px;
+            position: absolute;
+            left: 100px;
+            top: 300px;
+        }
+
+        </style>
+    </head>
+    <body>
+        <div class="main">
+            <div class="first-child">
+            </div>
+        </div>
+
+    </body>
+
+    <script type="text/JavaScript">
+    (
+        function() {
+            setTimeout(() => {
+            console.log(1)
+        }, 100);
+        console.log(3)
+        setTimeout(() => {
+            console.log(2)
+        }, 200);
+        console.log(4);
+        }
+    )()
+    </script>
+</html>
