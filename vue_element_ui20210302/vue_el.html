@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <!-- import CSS -->
+        <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+        <style>
+            .el-dropdown-link{
+                cursor: pointer;
+               
+            }
+            .el-dropdown-link{
+                color: #409EFF;
+            }
+        </style>
+    </head>
+   <body>
+       <div id="app-1">
+        <el-dropdown>
+            <span class="el-dropdown-link">下拉菜单<i class="el-icon--right el-icon-arrow-down" style="font-size: 12px;"></i></span>
+            <el-dropdown-menu  slot="dropdown">
+                <el-dropdown-item>
+                    黄金糕
+                </el-dropdown-item>
+                <el-dropdown-item>
+                    狮子头
+                </el-dropdown-item>
+                <el-dropdown-item disabled>
+                    叫花鸡
+                </el-dropdown-item>
+                <el-dropdown-item divided>
+                    蚵仔煎
+                </el-dropdown-item>
+            </el-dropdown-menu>
+        </el-dropdown>
+
+        <el-dropdown split-button type="primary" @click="onClick">
+            <!-- <span class="el-dropdown-link">下拉菜单<i class="el-icon--right el-icon-arrow-down" style="font-size: 12px;"></i></span> -->
+            <!-- <el-button type="primary">下拉菜单</el-button> -->
+            更多菜单
+            <el-dropdown-menu  slot="dropdown">
+                <el-dropdown-item>
+                    黄金糕
+                </el-dropdown-item>
+                <el-dropdown-item>
+                    狮子头
+                </el-dropdown-item>
+                <el-dropdown-item disabled>
+                    叫花鸡
+                </el-dropdown-item>
+                <el-dropdown-item divided>
+                    蚵仔煎
+                </el-dropdown-item>
+            </el-dropdown-menu>
+        </el-dropdown>
+       </div>
+   </body>
+    <!-- import Vue before Element -->
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <!-- import JavaScript -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+   <script type="text/javascript">
+   var app1 = new Vue({
+       el: "#app-1",
+       data: {},
+       methods: {
+           onClick: function(e) {
+               alert(e.type)
+           }
+       }
+   })
+   </script>
+</html>
