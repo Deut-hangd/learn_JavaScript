@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <!-- import CSS -->
+        <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">  
+        <!-- import vue -->
+        <script src="https://unpkg.com/vue/dist/vue.js"></script>
+        <!-- import JavaScript -->
+        <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    </head>
+    <body>
+        <div id="app-1">
+            <i class="el-icon-lock"></i>
+            <i class="el-icon-error"></i>
+            <i class="el-icon-delete"></i>
+            <a href="http://www.baidu.com"><i class="el-icon-share"></i></a>
+            <a href="#"><i class="el-icon-caret-left"></i></a>
+        </div>
+        
+        <div id="app-2">
+            <el-button-group>
+                <el-button type="primary"><i class="el-icon-arrow-left"></i>上一页</el-button>
+                <el-button type="primary">下一页<i class="el-icon-arrow-right"></i></el-button>
+            </el-button-group>
+            <el-button type="primary" :loading="true">加载中</el-button>
+        </div>
+
+        <div id="app-3">
+            <el-upload class="upload-demo">
+                <el-button size="small" type="primary">点击上传</el-button>
+                <div slot="tip" class="el-upload__tip">只能上传jpg/png文件, 且不超过500kb</div>
+            </el-upload>
+        </div>
+
+        <div id="app-4">
+            <span class="demonstration">隐藏tooltip</span>
+            <el-slider v-model="value1"></el-slider>
+        </div>
+    <script type="text/javascript">
+        var vm3 = new Vue({
+            el: "#app-3",
+            data: {}
+        });
+
+        var vm4 = new Vue({
+            el: "#app-4",
+            data: function() {
+                return {value1: 0}
+            }
+        })
+    </script>
+</html>
