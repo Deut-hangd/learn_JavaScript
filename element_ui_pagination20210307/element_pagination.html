@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <!-- import CSS -->
+        <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">  
+        <!-- import vue -->
+        <script src="https://unpkg.com/vue/dist/vue.js"></script>
+        <!-- import JavaScript -->
+        <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    </head>
+    <body>
+        <div id="app-1">
+            <el-row type="flex" justify="center">
+                <!-- <el-col> -->
+                    <el-pagination
+                    background
+                    layout="prev, pager,  next"
+                    :total="1000"
+                    :page-size="100">
+                    </el-pagination>  
+                <!-- </el-col>            -->
+            </el-row>     
+            <el-row type="flex" justify="center">
+                <!-- <el-col> -->
+                    <el-pagination
+                    layout="jumper">
+                </el-pagination>
+                <!-- </el-col> -->
+            </el-row> 
+        </div>
+
+        <div id="app-2">
+            <el-table style="width: 100%" :data="userList.slice((currentPage - 1) * pageSize, currentPage * pageSize)">
+                <el-table-column label="学号" prop="uid">
+
+                </el-table-column>
+                <el-table-column label="姓名" prop="name">
+
+                </el-table-column>
+                <el-table-column label="性别" prop="sex">
+
+                </el-table-column>
+                <el-table-column label="住址" prop="address">
+
+                </el-table-column>
+            </el-table>
+           <el-row type="flex" justify="center" style="margin-top: 50px;">
+            <el-pagination
+            @size-change="handleSizeChange"
+            @current-change="handleCurrentChange"
+            :current-page="currentPage"
+            :page-size="pageSize"
+            layout="prev, pager, next"
+            :total="userList.length">
+            </el-pagination>
+           </el-row>
+        </div>
+    </body>
+    <script type="text/javascript">
+
+    var app2 = new Vue({
+        el: "#app-2",
+        data : function() {
+            return  {
+                currentPage: 1,
+                pageSize: 1,
+                userList: [
+                    {uid: 1, name: "小明", sex: "男", address: "北京"},
+                    {uid: 2, name: "小红", sex: "女", address: "上海"},
+                    {uid: 3, name: "小李", sex: "男", address: "陕西"},
+                    {uid: 4, name: "小王", sex: "男", address: "河北"},
+                    {uid: 5, name: "小张", sex: "女", address: "河南"},
+                    {uid: 6, name: "小赵", sex: "男", address: "新疆"}
+                ]
+            }
+        },
+        // created: function() {
+        //     this.handleUserList();
+        // },
+        methods: {
+            handleSizeChange: function(pageSize) {
+                this.pageSize = pageSize;
+            },
+            handleCurrentChange: function(currentPage) {
+                this.currentPage = currentPage;
+            }
+        }
+    });
+
+    var app1 = new Vue({
+        el: "#app-1",
+        data: {}
+    })
+    </script>
+</html>
